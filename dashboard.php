@@ -136,7 +136,6 @@ if(isset($_SESSION['email']))
 
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <!-- <img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar"> -->
                             <h4><?php echo $email;?>!</h4>
                         </a>
 
@@ -258,7 +257,7 @@ if(isset($_SESSION['email']))
                 <!-- Orders -->
                 <div class="orders">
                     <div class="row">
-                        <div class="col-xl-9">
+                        <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
                                     <form method="post" action="#"><h4 class="box-title">Links <span><button type="submit" name="generate" class="btn btn-primary btn-lg pull-right" >Generate</button></span> </h4></form>
@@ -267,10 +266,7 @@ if(isset($_SESSION['email']))
         
                            </div>
                            <?php
-                        // require('auth/auth.php');
-                        require('auth/funkydb.php');
-
-                            $query21 = "SELECT * FROM `admin_link`";
+                        $query21 = "SELECT * FROM `admin_link`";
                             $result21 = mysqli_query($con,$query21) or die(mysql_error());
                             $rows21 = mysqli_num_rows($result21);
                             if($rows21>0){
@@ -282,8 +278,8 @@ if(isset($_SESSION['email']))
                                             <tr>
                                                 <th class='serial'>#</th>
                                                 <th>Link URL</th>
-                                                <th>Clicks Generated</th>
-                                                <th>Status</th>
+                                                
+                                                <th>DATE CREATED</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -303,9 +299,7 @@ if(isset($_SESSION['email']))
                                     <td>  <span class='name'>";
                                     echo $link21;
                                     echo"</td> 
-                                    <td>  <span class='count'>";
-                                    echo "45";
-                                    echo"</td>
+                                    
                                     <td>  <span >";
                                     echo $time21;
                                     echo"</td> </tr>";
@@ -316,13 +310,69 @@ if(isset($_SESSION['email']))
                                 </table>
                                     </div>
                                 </div>
-                            </div>
-                        </div> 
+                          
                                 ";
                             }
                         ?>
+                        
                                     </div> <!-- /.card -->
                         </div>  <!-- /.col-lg-8 -->
+                        <div class="col-xl-6">
+                        <?php
+                        require('auth/funkydb.php');
+
+
+                            $query31 = "SELECT link as li,COUNT(oauth) as c FROM invitees_tbl GROUP BY link";
+                                $result31 = mysqli_query($con,$query31) or die(mysqli_error());
+
+                                echo"<div class='card-body'>
+                                <div class='table-stats order-table ov-h'>
+                                    <table class='table'>
+                                        <thead>
+                                            <tr>
+                                                <th class='serial'>#</th>
+                                                <th>Link URL</th>
+                                                <th>Clicks Generated</th>
+                                               
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        ";
+                                // while (($row21 = mysqli_fetch_assoc($result21)) && ($row31 = mysqli_fetch_assoc($result31)) )
+
+                                while ($row31 = mysqli_fetch_assoc($result31))
+                
+                                {
+                                    $link21    = $row31['li'];
+                                    $click31 = $row31['c'];
+
+                                    echo "
+                                    <tr>
+                                    <td class='serial'>";
+                                    echo"</td> 
+                                    <td>  <span class='name'>";
+                                    echo $link21;
+                                    echo"</td> 
+                                    <td>  <span class='count'>";
+                                    echo $click31;
+                                    echo"</td>
+                                    </tr>";
+
+                                }
+                                echo"
+                                </tbody>
+                                </table>
+                                </div>
+                                </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                                ";
+                            
+                        ?>
+                       
+                        </div>
                     </div>
                 </div>
             </div>
