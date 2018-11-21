@@ -1,0 +1,90 @@
+
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	
+}
+.body{
+    background: -webkit-linear-gradient(left, #1C304E, #365899);
+    margin-top: 0;
+    padding: 0;
+	height: 100vh;
+	color:#fff;
+}
+.index{
+    background: -webkit-linear-gradient(left, #fffcfc, #fff);
+}
+.hone{
+	color:#fff;
+}
+
+.clearfix:before, .clearfix:after { 
+	content: ""; 
+	display: table; 
+}
+.clearfix:after { 
+	clear: both; 
+}
+a {
+	color:#0067ab; 
+	text-decoration:none;
+}
+a:hover {
+	text-decoration:underline;
+}
+.form{
+	width: auto;
+	height: auto;
+	margin: 0 auto;
+	padding:10px;
+	margin-top: 5%;
+	background-color: rgba(0,0,0,0.24);
+	border-radius: 30px 0 30px 0;
+}
+
+
+input[type='text'], input[type='email'], input[type='password'], input[type='date']  {
+	 
+	border-radius: 2px;
+	border: 1px solid #CCC; 
+	padding: 10px; 
+	color: #333; 
+	font-size: 14px; 
+	margin-top: 10px;
+}
+input[type='submit']{
+	padding: 10px 25px 8px; 
+	color: #fff; 
+	background-color: #0067ab; 
+	text-shadow: rgba(0,0,0,0.24) 0 1px 0; 
+	font-size: 16px; 
+	box-shadow: rgba(255,255,255,0.24) 0 2px 0 0 inset,#fff 0 1px 0 0; 
+	border: 1px solid #0164a5; 
+	border-radius: 2px; 
+	margin-top: 10px; 
+	cursor:pointer;}
+input[type='submit']:hover {
+	background-color: #024978;
+}
+.h7 {
+            font-size: 0.8rem;
+        }
+
+        .gedf-wrapper {
+            margin-top: 0.97rem;
+        }
+
+        @media (min-width: 992px) {
+            .gedf-main {
+                padding-left: 4rem;
+                padding-right: 4rem;
+            }
+            .gedf-card {
+                margin-bottom: 2.77rem;
+            }
+        }
+
+        /**Reset Bootstrap*/
+        .dropdown-toggle::after {
+            content: none;
+        }
