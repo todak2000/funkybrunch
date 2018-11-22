@@ -35,10 +35,9 @@
 			//Checking is user existing in the database or not
     
 				$query ="SELECT * FROM `admin_login` WHERE admin_user='".$email."' and password='".md5($password)."' ";
-				var_dump($query);
-                
+			
                 $result = mysqli_query($con,$query) or die(mysqli_error());
-                var_dump($result);
+
 				$rows = mysqli_num_rows($result);
 				// var_dump($rows);
 		        if($rows==1){
