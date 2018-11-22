@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
-
+    <script src="js/jquery.js"></script>
 </head>
 
 <body>
@@ -42,7 +42,7 @@
                  }
                  
                 $ref = unique_link(6);
-                echo $ref;
+                // echo $ref;
 				
                 //Checking is user existing in the database or not
                 $query = "INSERT into `admin_link` (link) VALUES ('$ref')";
@@ -61,6 +61,13 @@
                             $uniquelink     = $row['link'];
                     
                             $full_url = "www.funkybrunch/".$uniquelink;
+                            echo "<div align='center' class='form' style='margin-top: 0;color:#ccc; width: 100vw; height:100vh; z-index:1000; padding:20% 30%; position:fixed; background-color: rgba(0,0,0,0.7);'><h3 style='color:#ccc;'>
+                            <a href='linktrack.php?uid="; 
+                            echo $ref;
+                            echo"'>";
+                            echo $full_url;
+                            echo"</a></h3><br/><a style='color:#979b1b;' href='dashboard.php'>Dashboard</a></div>";
+                            
                            
                         }
 
@@ -69,22 +76,19 @@
                 
             }
         ?>
-<?php
-session_start();
-require('auth/funkydb.php');
-if(!isset($_SESSION["email"])){
-header("Location: signin.php");
-exit(); }
+                        <?php
+                        session_start();
+                        require('auth/funkydb.php');
+                        if(!isset($_SESSION["email"])){
+                        header("Location: signin.php");
+                        exit(); }
 
-if(isset($_SESSION['email']))
-    {
-        $email=$_SESSION['email'] ;
-    }
-
-    $url= $_SESSION["url"];
-
-
-?>
+                        if(isset($_SESSION['email']))
+                            {
+                                $email=$_SESSION['email'] ;
+                            
+                            }
+                        ?>
 
     <!-- Left Panel -->
     <aside id="left-panel" class="left-panel">
@@ -94,16 +98,7 @@ if(isset($_SESSION['email']))
                     <li class="active">
                         <a href="index.html"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
                     </li>
-                    <li class="menu-title">Details</li><!-- /.menu-title -->
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Components</a>
-                        <ul class="sub-menu children dropdown-menu">                 
-
-                            <li><i class="menu-icon fa fa-sign-in"></i><a href="signin/signin.html">Login</a></li>
-                            <li><i class="menu-icon fa fa-sign-in"></i><a href="#">Generate</a></li>
-                            <li><i class="menu-icon fa fa-paper-plane"></i><a href="#">Forget Pass</a></li>
-                        </ul>
-                    </li>
+                   
                     
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -124,30 +119,21 @@ if(isset($_SESSION['email']))
             <div class="top-right">
                 <div class="header-menu">
                     <div class="header-left">
-                        <button class="search-trigger"><i class="fa fa-search"></i></button>
-                        <div class="form-inline">
-                            <form class="search-form">
-                                <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search">
-                                <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
-                            </form>
+                    <a href="#" class="nav-link"><h4><?php echo $email;?>!</h4></a>
+                    <a class="nav-link pull-right" href="logout.php"><i class="fa fa-power-off" style="padding-right:10px;"></i>Logout</a>
                         </div>
 
 
 
-                    <div class="user-area dropdown float-right">
-                        <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <h4><?php echo $email;?>!</h4>
-                        </a>
+                    <!-- <div class="user-area dropdown float-right">
+                        
 
                         <div class="user-menu dropdown-menu">
-                            <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
-
-
-                            <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
+                            
 
                             <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
                         </div>
-                    </div>
+                    </div> -->
 
                 </div>
             </div>
@@ -159,7 +145,7 @@ if(isset($_SESSION['email']))
             <div class="animated fadeIn">
                 <!-- Widgets  -->
                 <div class="row">
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <div class="card">
                             <div class="card-body">
                                 <div class="stat-widget-five">
@@ -183,7 +169,7 @@ if(isset($_SESSION['email']))
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <div class="card">
                             <div class="card-body">
                                 <div class="stat-widget-five">
@@ -209,7 +195,7 @@ if(isset($_SESSION['email']))
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <div class="card">
                             <div class="card-body">
                                 <div class="stat-widget-five">
@@ -218,7 +204,13 @@ if(isset($_SESSION['email']))
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">349</span></div>
+                                            <div class="stat-text">
+                                            <?php 
+                                            
+                                            // echo $url ;
+                                          
+                                           
+                                           ?></span></div>
                                             <div class="stat-heading">Registered</div>
                                         </div>
                                     </div>
@@ -227,19 +219,20 @@ if(isset($_SESSION['email']))
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6">
+                    <!-- <div class="col-lg-3 col-md-6 link_generator">
                         <div class="card">
                             <div class="card-body">
                                 <div class="">
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text"><a href="linktrack.php"><span >
+                                         
+                                            <div class="stat-text"><a href="linktrack.php?uid=<?php echo $ref;?>"><span > 
+                                            
                                             <?php 
                                             
                                              echo $full_url ;
-                                           
-                                            
                                             ?>
+                                            
                                             </span></a></div>
                                             <div class="stat-heading">Link Generated</div>
                                         </div>
@@ -247,7 +240,7 @@ if(isset($_SESSION['email']))
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <!-- /Widgets -->
                 <!--  Traffic  -->
@@ -260,14 +253,14 @@ if(isset($_SESSION['email']))
                         <div class="col-xl-6">
                             <div class="card">
                                 <div class="card-body">
-                                    <form method="post" action="#"><h4 class="box-title">Links <span><button type="submit" name="generate" class="btn btn-primary btn-lg pull-right" >Generate</button></span> </h4></form>
+                                    <form method="post" action="#"><h4 class="box-title">Links <span><button type="submit" name="generate" class="btn btn-primary btn-lg pull-right generate" >Generate</button></span> </h4></form>
                                     <!-- Modal -->
   
         
                            </div>
                            <?php
                         $query21 = "SELECT * FROM `admin_link`";
-                            $result21 = mysqli_query($con,$query21) or die(mysql_error());
+                            $result21 = mysqli_query($con,$query21) or die(mysqli_error());
                             $rows21 = mysqli_num_rows($result21);
                             if($rows21>0){
 
@@ -375,7 +368,7 @@ if(isset($_SESSION['email']))
                         </div>
                     </div>
                 </div>
-            </div>
+            </h1>
             
             <!-- .animated -->
         </div>

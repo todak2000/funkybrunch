@@ -34,7 +34,8 @@
 				
 			//Checking is user existing in the database or not
     
-                $query ="SELECT * FROM `admin_login` WHERE admin_user='$email'";
+				$query ="SELECT * FROM `admin_login` WHERE admin_user='".$email."' and password='".md5($password)."' ";
+				var_dump($query);
                 
                 $result = mysqli_query($con,$query) or die(mysqli_error());
                 var_dump($result);
@@ -44,7 +45,7 @@
 					$_SESSION['email'] = $email;
 						 header("Location: dashboard.php");// Redirect user to index.php
 		            }else{
-						echo "<div align='center' class='form' style='margin-top: 0;color:#ccc; width: 400px;position:fixed; top: 30%; left: 35%;'><h3 style='color:#ccc;'> <span style='font-size:80px; color:#FFC655'>&#9785;</span><br>Username/password is incorrect.</h3><br/>Click here to <a style='color:#979b1b;' href='signin.php'>Login</a></div>";
+						echo "<div align='center' class='form' style='margin-top: 0;color:#ccc; width: 400px;position:fixed; top: 30%; left: 35%;'><h3 style='color:#ccc;'> <span style='font-size:80px; color:#FFC655'>&#9785;</span><br>Username/password is incorrect.</h3><br/>Click here to <a style='color:#979b1b;' href='index.php'>Login</a></div>";
 						}
 		    }else{
 		?>
@@ -53,7 +54,7 @@
 			<div class="login100-more" style="background-image: url('images/funky_brunch_logo-.jpg');"></div>
 
 			<div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" method="post">
 					<span class="login100-form-title p-b-59">
 						Sign In
 					</span>
@@ -66,7 +67,7 @@
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
 						<span class="label-input100">Password</span>
-						<input class="input100" type="text" name="pass" placeholder="*************">
+						<input class="input100" type="password" name="pass" placeholder="*************">
 						<span class="focus-input100"></span>
 					</div>
 

@@ -1,39 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Funky Brunch Verification</title>
+	<title>Funky Brunch Login</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	
+	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
 </head>
-<body style="background-color: #fff;">
-<style>
-    body{text-align:center;}
-    .container{width: 600px; text-align:center; margin-top:50px;margin-bottom:50px;}
-    p{font-size:30px;margin-top:10px;margin-bottom:10px;}
-    .container-login100-form-btn{style="text-align: center; margin: auto; padding-top:30px; padding-bottom:30px;}
-    .input105 {text-align:center; display: block; width: 100%; height: 50px; background: transparent; font-family: Poppins-Regular; font-size: 16px; color: #555555; line-height: 1.2;
-  padding: 0 2px;}
-  .login100-form-btn {display: -webkit-box;  display: -webkit-flex; display: -moz-box; display: -ms-flexbox; display: flex; justify-content: center; align-items: center; padding: 0 20px;  min-width: 244px;
-  height: 50px; font-family: Poppins-Medium; font-size: 16px; color: #fff; line-height: 1.2;}
-</style>
-<div class='container'>
-<form class='form' method='post'>
-					<p>Verification</p>
+<body style="background-color: #999999;">
 
-					<div class="oauth" >
-						<p>OAUTH</p>
-						<input class="input105" type="text" name="oauth" placeholder="Enter the Oauth">
+<form class="login100-form validate-form" method="post">
+					<span class="login100-form-title p-b-59">
+						Verification
+					</span>
+
+					<div class="wrap-input100 " >
+						<span class="label-input100">OAUTH</span>
+						<input class="input100" type="text" name="oauth" placeholder="Enter the Oauth">
 						<span class="focus-input100"></span>
 					</div>
 
-					<div class="container-login100-form-btn" style="text-align:center; margin-left:28%;">
+					
+
+					<div class="container-login100-form-btn" >
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
 							<button class="login100-form-btn" style="text-align: center; margin: auto;" name="saubmit">
@@ -42,7 +44,6 @@
 						</div>
 					</div>
 </form>
-</div>
 <?php
  
  require('auth/funkydb.php');
@@ -104,6 +105,17 @@
 <?php }
 }?>
 
+<!--===============================================================================================-->
+<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+ 
 </body>
 
 </html>
