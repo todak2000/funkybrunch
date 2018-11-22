@@ -259,7 +259,7 @@
         
                            </div>
                            <?php
-                        $query21 = "SELECT * FROM `admin_link`";
+                        $query21 = "SELECT * FROM `admin_link` ORDER BY a_id DESC LIMIT 0,9";
                             $result21 = mysqli_query($con,$query21) or die(mysqli_error());
                             $rows21 = mysqli_num_rows($result21);
                             if($rows21>0){
@@ -315,7 +315,7 @@
                         require('auth/funkydb.php');
 
 
-                            $query31 = "SELECT link as li,COUNT(oauth) as c FROM invitees_tbl GROUP BY link";
+                            $query31 = "SELECT link as li,COUNT(oauth) as c FROM invitees_tbl GROUP BY link ORDER BY id DESC";
                                 $result31 = mysqli_query($con,$query31) or die(mysqli_error());
 
                                 echo"<div class='card-body'>

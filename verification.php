@@ -46,15 +46,7 @@
 <?php
  
  require('auth/funkydb.php');
-// $encoded = 'NDMxMTQwOGRiMTdkYzhkNmFiZTQ0MGZiYjg0MGFkNjl8MTU0MjgxNjI2NA%3D%3D';
 
-
-
-// $query1="SELECT * FROM invitees_tbl WHERE oauth = '$encoded'";
-
-// $result1 = mysqli_query($con,$query1) or die(mysqli_error());
-//          $rows1 = mysqli_num_rows($result1);
-        
          
 
          if (isset($_REQUEST['saubmit'])){
